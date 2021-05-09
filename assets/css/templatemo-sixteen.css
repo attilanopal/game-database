@@ -931,7 +931,7 @@ footer .inner-content p a {
 .btn-discover {
 	color: #f33f3f;
 	font-weight: bold;
-	position: relative;
+	position: absolute;
 	bottom: 20%;
 	left: 75%;
 }
