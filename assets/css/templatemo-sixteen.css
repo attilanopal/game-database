@@ -90,6 +90,7 @@ a.filled-button:hover {
 
 .products-heading {
 	background-image: url(../images/products-heading.jpg);
+	
 }
 
 .about-heading {
@@ -931,9 +932,42 @@ footer .inner-content p a {
 .btn-discover {
 	color: #f33f3f;
 	font-weight: bold;
+	font-size: 25px;
 	position: absolute;
 	bottom: 20%;
-	left: 75%;
+	left: 73%;
+}
+.btn-discover:hover {
+	color: black;
+	
+}
+
+.jdl-games {
+	padding-top: 5px;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.card-games {
+	padding-left: 15px;
+}
+
+.game-desc{
+	padding-bottom: 12px;
+}
+
+.game-desc img{
+	display: inline-block;
+	width: 200px;
+	height: 300px;
+	background-size: contain;
+	
+}
+
+.game-desc p{
+	padding-left: 10px;
+	display: inline-block;
+	vertical-align: top;
 }
 
 
