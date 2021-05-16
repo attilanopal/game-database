@@ -959,8 +959,8 @@ footer .inner-content p a {
 	font-weight: bold;
 	font-size: 25px;
 	position: absolute;
-	bottom: 150px;
-	right: 150px;
+	bottom: 15%;
+	left: 73%;
 	border: 15px solid #f33f3f;
 	background-color: #f33f3f;
 	border-radius: 50px;
