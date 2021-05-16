@@ -954,8 +954,9 @@ footer .inner-content p a {
 	border-radius: 50px;
 }
 .btn-discover:hover {
-	color: black;
-	
+	color: #f33f3f;
+	background-color: #eee;
+	border: 14px solid #eee;
 }
 
 .jdl-games {
