@@ -959,6 +959,12 @@ footer .inner-content p a {
 	border: 14px solid #eee;
 }
 
+.btn-games{
+	position: relative;
+	left: 200px;
+	top: 100px;
+}
+
 .jdl-games {
 	padding-top: 5px;
 	text-align: center;
@@ -975,7 +981,10 @@ footer .inner-content p a {
 	display: block;
 	height: 340px;
 	width: 450px;
-	
+}
+.btn-readmore{
+	position:relative;
+	left: 550px;
 }
 
 .card-text {
