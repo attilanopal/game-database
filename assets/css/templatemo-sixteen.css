@@ -963,14 +963,26 @@ footer .inner-content p a {
 	text-align: center;
 	padding-bottom: 10px;
 }
-
+.card-body{
+	min-height: 350px;
+}
 .card-games {
 	padding-left: 15px;
 }
+.card-img {
+	position: absolute;
+	display: block;
+	height: 340px;
+	width: 450px;
+	
+}
 
 .card-text {
-	padding-left: 15px;
-	font-size: 18px;
+	position: relative;
+	left: 200px;
+	padding: 5px 15px;
+	font-size: 21px;
+	display: block;
 }
 
 .game-desc{
