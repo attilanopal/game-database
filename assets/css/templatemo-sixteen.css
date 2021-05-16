@@ -994,6 +994,21 @@ footer .inner-content p a {
 	font-size: 21px;
 	display: block;
 }
+.input-form{
+	position: relative;
+	max-width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	border-radius: 6px;
+	box-shadow: 0 0 7px 0 rgba(136, 146, 146, 0.2);
+	padding: 30px;
+}
+.form{
+	width: 100%;
+	display: grid;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
 
 .game-desc{
 	padding-bottom: 12px;
