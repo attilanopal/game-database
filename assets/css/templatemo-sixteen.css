@@ -133,7 +133,7 @@ a.filled-button:hover {
 	font-size: 32px;
 	text-transform: uppercase;
 	letter-spacing: 5px;
-	
+	margin-top: 75px;
 }
 
 #preloader {
@@ -982,6 +982,13 @@ footer .inner-content p a {
 	text-align: center;
 	padding-bottom: 10px;
 }
+
+.jdl-developer {
+	padding-top: 15px;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
 .card-body{
 	min-height: 350px;
 }
@@ -994,6 +1001,7 @@ footer .inner-content p a {
 	height: 340px;
 	width: 450px;
 }
+
 .btn-readmore{
 	position:relative;
 	left: 550px;
@@ -1006,6 +1014,7 @@ footer .inner-content p a {
 	font-size: 21px;
 	display: block;
 }
+
 .dev{
 	position: relative;
 	top: 85px;
@@ -1044,6 +1053,24 @@ footer .inner-content p a {
 	vertical-align: top;
 }
 
+
+.developer-desc{
+	padding-bottom: 12px;
+}
+
+.developer-desc img{
+	display: inline-block;
+	width: 250px;
+	height: 250px;
+	background-size: contain;
+	
+}
+
+.developer-desc p{
+	padding-left: 70px;
+	display: inline-block;
+	vertical-align: top;
+}
 
 /* Responsive Style */
 @media (max-width: 768px) {
