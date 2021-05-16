@@ -943,12 +943,15 @@ footer .inner-content p a {
 
 /* Modifikasi */
 .btn-discover {
-	color: #f33f3f;
+	color: #eee;
 	font-weight: bold;
 	font-size: 25px;
 	position: absolute;
 	bottom: 20%;
 	left: 73%;
+	border: 15px solid #f33f3f;
+	background-color: #f33f3f;
+	border-radius: 50px;
 }
 .btn-discover:hover {
 	color: black;
@@ -963,6 +966,11 @@ footer .inner-content p a {
 
 .card-games {
 	padding-left: 15px;
+}
+
+.card-text {
+	padding-left: 15px;
+	font-size: 18px;
 }
 
 .game-desc{
