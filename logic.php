@@ -1,9 +1,9 @@
 <?php
-$server = "localhost"; 
-$username = "root";    
-$password = "";
-$database = "dbGame";
-$connect = mysqli_connect($server,$username,$database);
+$server = 'localhost'; 
+$username = 'root';    
+$password = '';
+$database = 'dbGame';
+$connect = mysqli_connect($server,$username,$password,$database);
 
 if (!$connect){
     echo "<div class='alert alert-danger' role='alert'>
