@@ -93,6 +93,10 @@ a.filled-button:hover {
 	
 }
 
+.developer-heading {
+	background-image: url(../images/developer-heading.jpg);
+}
+
 .about-heading {
 	background-image: url(../images/about-heading.jpg);
 }
@@ -122,6 +126,14 @@ a.filled-button:hover {
 	font-size: 62px;
 	text-transform: uppercase;
 	letter-spacing: 5px;
+}
+
+.page-heading .text-content h3 {
+	color: rgb(255, 255, 255);
+	font-size: 32px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	margin-top: 75px;
 }
 
 #preloader {
@@ -947,7 +959,7 @@ footer .inner-content p a {
 	font-weight: bold;
 	font-size: 25px;
 	position: absolute;
-	bottom: 20%;
+	bottom: 15%;
 	left: 73%;
 	border: 15px solid #f33f3f;
 	background-color: #f33f3f;
@@ -966,13 +978,21 @@ footer .inner-content p a {
 }
 
 .jdl-games {
-	padding-top: 5px;
+	padding-top: 15px;
 	text-align: center;
 	padding-bottom: 10px;
 }
+
+.jdl-developer {
+	padding-top: 15px;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
 .card-body{
 	min-height: 350px;
 }
+
 .card-games {
 	padding-left: 15px;
 }
@@ -982,6 +1002,7 @@ footer .inner-content p a {
 	height: 340px;
 	width: 450px;
 }
+
 .btn-readmore{
 	position:relative;
 	left: 550px;
@@ -993,6 +1014,26 @@ footer .inner-content p a {
 	padding: 5px 15px;
 	font-size: 21px;
 	display: block;
+}
+
+.dev{
+	position: relative;
+	top: 85px;
+}
+.input-form{
+	position: relative;
+	max-width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	border-radius: 6px;
+	box-shadow: 0 0 7px 0 rgba(136, 146, 146, 0.2);
+	padding: 30px;
+}
+.form{
+	width: 100%;
+	display: grid;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 .game-desc{
@@ -1013,6 +1054,24 @@ footer .inner-content p a {
 	vertical-align: top;
 }
 
+
+.developer-desc{
+	padding-bottom: 12px;
+}
+
+.developer-desc img{
+	display: inline-block;
+	width: 250px;
+	height: 250px;
+	background-size: contain;
+	
+}
+
+.developer-desc p{
+	padding-left: 70px;
+	display: inline-block;
+	vertical-align: top;
+}
 
 /* Responsive Style */
 @media (max-width: 768px) {

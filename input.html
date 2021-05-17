@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +30,9 @@ https://templatemo.com/tm-546-sixteen-clothing
   </head>
 
   <body>
+    <?php 
+      // include './lib/koneksi.php';
+    ?>
 
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
@@ -65,10 +69,10 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="games.html">Store</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="developer.html">Developer</a>
+                <a class="nav-link" href="developer.html">Developer</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="input.html">Input</a>
+                <a class="nav-link active" href="input.html">Input</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.html">About Us</a>
@@ -79,83 +83,76 @@ https://templatemo.com/tm-546-sixteen-clothing
       </nav>
     </header>
 
-
     <!-- Page Content -->
-    <div class="page-heading developer-heading header-text ">
+    <div class="page-heading contact-heading header-text">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <div class="text-content dev">
-              <h3>List Of Developer</h3>
+            <div class="text-content">
+              <h4>Input New Games Here</h4>
+              <h2>Keep us updated</h2>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Isi List Developer -->
-    <div class="about-features">
-      <h2 class="jdl-developer">Developer List</h2>
-      <br>
-    </div>
-    <!-- Developer 1 -->
-    <div class="card w50 card-games">
-      <div class="card-body">
-        <h2 class="card-title">EA SPORTS</h2>
-        <div class="developer-desc">
-          <img class="card-img" src="assets/images/ea.png" >
-          <p class="card-text">Developer : </p><br>
-          <p class="card-text">Publisher : </p><br>
-          <p class="card-text">Producers : </p><br>
-          
-        </div>
-        <a href="#" class="btn btn-danger btn-games">Read More --></a>
-      </div>
-    </div> 
-    <!-- Developer 2 -->
-    <div class="card w50 card-games">
-      <div class="card-body">
-        <h2 class="card-title">NINTENDO</h5>
-        <div class="developer-desc">
-          <img class="card-img" src="assets/images/nintendo2.png" >
-          <p class="card-text">Developer : </p><br>
-          <p class="card-text">Publisher : </p><br>
-          <p class="card-text">Producers : </p><br>
-          
-        </div>
-        <a href="#" class="btn btn-danger btn-games">Read More --></a>
-      </div>
-    </div>
-    <!-- Developer 3 -->
-    <div class="card w0 card-games">
-      <div class="card-body">
-        <h2 class="card-title">-----</h5>
-        <div class="developer-desc">
-          <img class="card-img" src="assets/images/" >
-          <p class="card-text">Developer : </p><br>
-          <p class="card-text">Publisher : </p><br>
-          <p class="card-text">Producers : </p><br>
-        </div>
-        <a href="#" class="btn btn-danger btn-games">Read More --></a>
-      </div>
-    </div>
-    <!-- Akhir List Games -->
-
     
-    <footer>
+    <div class="input-page about-features">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <div class="inner-content">
-              <p>Copyright &copy; 2021 Project Sistem Database - Game Database </p>
+            <div class="section-heading">
+              <h2>New Game Input</h2>
             </div>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
+    <div class="input-form">
+      <form method="POST">
+        <div class="form">
+          <label>Judul Game</label>
+          <input id="inpJudul" type="text" name="judul_game">
+        </div>
+        <div class="form">
+          <label>Kategori</label>
+          <input id="inpKategori" type="text" name="kategori">
+        </div>
+        <div class="form">
+          <label>Publisher</label>
+          <input id="inpPublisher" type="text" name="publisher">
+        </div>
+        <div class="form">
+          <label>Developer</label>
+          <input id="inpDev" type="text" name="developer">
+        </div>
+        <div class="form">
+          <label>Store</label>
+          <input id="inpStore" type="text" name="store">
+        </div>
+        <div class="form">
+          <label>Tanggal Rilis</label>
+          <input id="inpTgl" type="date" name="tanggal">
+        </div>
+        <div class="form">
+          <label>Platform</label>
+          <input id="inpPlaform" type="text" name="platform">
+        </div>
+        <div class="form">
+          <label>Rating</label>
+          <input id="inpRating" type="number" name="rating">
+        </div>
+        <div class="form">
+          <label>Sinopsis</label>
+          <input id="inpSin" type="text" name="sinopsis">
+        </div>
+        <div class="form">
+          <input type="submit" name="submit" value="SUBMIT" class="btn">
+        </div>
+      </form>
+    </div>
 
-
-    <!-- Bootstrap core JavaScript -->
+      <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -179,7 +176,29 @@ https://templatemo.com/tm-546-sixteen-clothing
       }
     </script>
 
+<?php
+      if(isset($_POST['submit'])){
+        $koneksi = mysqli_connect("localhost","root","", "gametab");
+        $jg = $_POST['judul_game'];
+        $k = $_POST['kategori'];
+        $p = $_POST['publisher'];
+        $d = $_POST['developer'];
+        $s = $_POST['store'];
+        $t = $_POST['tanggal'];
+        $pl = $_POST['platform'];
+        $r = $_POST['rating'];
+        $si = $_POST['sinopsis'];
 
+        mysqli_query($koneksi, "INSERT INTO game VALUES ('','$jg','$k','$p','$d','$s','$t','$pl','$r','$si' )");
+        // $sql = "INSERT INTO game VALUES (
+        //   '','$jg','$k','$p','$d','$s','$t','$pl','$r','$si'
+        // );";
+
+        echo $sql;
+      }
+    ?>
+    <?php
+      $koneksi = mysqli_connect("localhost","root","", "gametab")
+    ?>
   </body>
-
 </html>
