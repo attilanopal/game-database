@@ -991,6 +991,11 @@ footer .inner-content p a {
 	top: 100px;
 }
 
+.btn2{
+	position: relative;
+	margin-left: 270px;
+}
+
 .jdl-games {
 	padding-top: 15px;
 	text-align: center;
@@ -1028,6 +1033,14 @@ footer .inner-content p a {
 	padding: 5px 15px;
 	font-size: 21px;
 	display: block;
+}
+
+.publisher-text {
+	position: relative;
+	left: 200px;
+	padding: 5px 15px 5px 15px;
+	font-size: 16px;
+	width: 85%;
 }
 
 .dev{
