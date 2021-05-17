@@ -111,8 +111,8 @@ https://templatemo.com/tm-546-sixteen-clothing
       <div class="card-body">
         <h2 class="card-title"><?=$data['Judul']?></h5>
         <div class="game-desc">
-          <img class="card-img" src="<?=$data['Link_Foto']?>" >
-          <p class="card-text">Developer : <?=$data['Developer']?> </p><br>
+          <img class="card-img" src="<?=$data['Link_Foto']?>" >             
+          <p class="card-text">Developer : <?=$data['Developer']?> </p><br> <!-- Intinya yang $data['namaKolom'] buat ngambil data dari database -->
           <p class="card-text">Publisher : <?=$data['Publisher']?></p><br>
           <p class="card-text">Producers : <?=$data['Producer']?></p><br>
         </div>
