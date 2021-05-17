@@ -97,12 +97,20 @@ a.filled-button:hover {
 	background-image: url(../images/developer-heading.jpg);
 }
 
+.publisher-heading {
+	background-image: url(../images/publisher-heading.jpg);
+}
+
+.store-heading {
+	background-image: url(../images/store-heading.jpg);
+}
+
 .about-heading {
 	background-image: url(../images/about-heading.jpg);
 }
 
-.contact-heading {
-	background-image: url(../images/contact-heading.jpg);
+.input-heading {
+	background-image: url(../images/input-heading.jpg);
 }
 
 .page-heading {
@@ -119,6 +127,12 @@ a.filled-button:hover {
 	text-transform: uppercase;
 	font-weight: 700;
 	margin-bottom: 15px;
+}
+.page-heading .text-content h5{
+	color: #f33f3fe0;
+	font-size: 62px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
 }
 
 .page-heading .text-content h2 {
@@ -1061,8 +1075,8 @@ footer .inner-content p a {
 
 .developer-desc img{
 	display: inline-block;
-	width: 250px;
-	height: 250px;
+	width: 200px;
+	height: 200px;
 	background-size: contain;
 	
 }
@@ -1072,6 +1086,7 @@ footer .inner-content p a {
 	display: inline-block;
 	vertical-align: top;
 }
+
 
 /* Responsive Style */
 @media (max-width: 768px) {
