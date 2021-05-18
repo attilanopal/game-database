@@ -183,10 +183,13 @@ https://templatemo.com/tm-546-sixteen-clothing
             <td><?=$judul_game?></td> <!-- Ini sesuain sama nama kolom di database-->
             <td>
               <a href="#" class="btn btn-warning"> Edit </a>
-              <a href="#" class="btn btn-warning"> Hapus </a>
+              <a href="#" class="btn btn-danger"> Hapus </a>
             </td>
           </tr>
-
+        
+        <?php
+          endwhile;
+        ?>
         </table>
       </div>
     </section>
