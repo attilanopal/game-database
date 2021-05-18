@@ -152,6 +152,45 @@ https://templatemo.com/tm-546-sixteen-clothing
       </form>
     </div>
 
+    <section id="--">
+      <div class="input-page about-features">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-heading">
+                <h2>Edit Database</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="input-form">
+        
+        <table class="table table-bordered ">
+          <tr>
+            <th>No</th>
+            <th>Judul Game</th>
+            <th>Aksi</th>
+          </tr>
+        <?php 
+          $no = 1;
+          $tampil = mysqli_query($koneksi,"SELECT * from game order by id_game desc");
+          while ($data = mysqli_fetch_array($tampil)):
+
+        ?>
+          <tr>
+            <td><?=$no++?></td>
+            <td><?=$judul_game?></td> <!-- Ini sesuain sama nama kolom di database-->
+            <td>
+              <a href="#" class="btn btn-warning"> Edit </a>
+              <a href="#" class="btn btn-warning"> Hapus </a>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+    </section>
+
       <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

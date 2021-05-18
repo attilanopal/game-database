@@ -3,7 +3,7 @@
   // Ini udah urg tambahin auto update dri database nya
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">  
 
   <head>
 
@@ -140,9 +140,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></scriptzzz
     <!-- Additional Scripts -->
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/owl.js"></script>
