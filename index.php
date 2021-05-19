@@ -1,6 +1,5 @@
-<?php
-  include "logic.php"
-?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,13 +52,13 @@ https://templatemo.com/tm-546-sixteen-clothing
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a class="nav-link" href="index.php">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link active" href="games.php">Games</a>
+                <a class="nav-link" href="games.php">Games</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="publisher.php">Publisher</a>
@@ -82,68 +81,25 @@ https://templatemo.com/tm-546-sixteen-clothing
       </nav>
     </header>
 
-
     <!-- Page Content -->
-    <div class="page-heading products-heading header-text">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="text-content">
-              <h4>New Games Everyday</h4>
-              <h2>List Of Games</h2>
-            </div>
+    <!-- Banner Starts Here -->
+    <div class="banner header-text">
+        <div class="banner-item-01">
+          <div class="text-content">
+            <h4>Find Your Favorite Games Here</h4>
+            <br>
+            <h2>New Games Updated Everyday</h2>
           </div>
         </div>
-      </div>
     </div>
+    <!-- Banner Ends Here -->
 
-    <!-- Isi List Games -->
-      
-    <div class="about-features">
-      <h2 class="jdl-games">Games List</h2>
-      <br>
+    <!-- Discover Button -->
+    <div class="flex-container">
+      <a class="btn btn-discover" href="games.php">Discover Games</a>
     </div>
-
-    <?php 
-      $tampil = mysqli_query($connect,"SELECT * FROM game INNER JOIN developer ON game.id_developer = developer.id
-                                       INNER JOIN publisher ON game.id_publisher = publisher.id 
-                                       INNER JOIN platform_store ON game.id_platform_store = platform_store.id");
-      while($data = mysqli_fetch_array($tampil)):
-    ?>
-    <div class="card w50 card-games">
-      <div class="card-body">
-        <h2 class="card-title"><?=$data['judul']?></h5>
-        <div class="game-desc">
-          <img class="card-img" src="<?=$data['link_foto']?>" >
-          <p class="card-text">Developer : <?=$data['namaDev']?></p><br>
-          <p class="card-text">Publisher : <?=$data['namaPub']?></p><br>
-          <p class="card-text">Store     : <?=$data['namaPlat']?></p><br>
-          <p class="card-text">Producers : <?=$data['producers']?></p><br>
-          <p class="card-text">Category  : <?=$data['kategori']?></p><br>
-
-        </div>
-      </div>
-    </div> 
-    <?php endwhile; ?>
     
-    <!-- Games 3 -->
-    <!-- Akhir List Games -->
-
-    
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="inner-content">
-              <p>Copyright &copy; 2021 Project Sistem Database - Game Database </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-
-    <!-- Bootstrap core JavaScript -->
+      <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

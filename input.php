@@ -1,4 +1,6 @@
-
+<?php
+  include "logic.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,13 +37,13 @@ https://templatemo.com/tm-546-sixteen-clothing
     ?>
 
     <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div class="jumper">
             <div></div>
             <div></div>
             <div></div>
         </div>
-    </div>  
+    </div>   -->
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
@@ -55,27 +57,27 @@ https://templatemo.com/tm-546-sixteen-clothing
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home
+                <a class="nav-link" href="index.php">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="games.html">Games</a>
+                <a class="nav-link" href="games.php">Games</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="publisher.html">Publisher</a>
+                <a class="nav-link" href="publisher.php">Publisher</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="games.html">Store</a>
+                <a class="nav-link" href="games.php">Store</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="developer.html">Developer</a>
+                <a class="nav-link" href="developer.php">Developer</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="input.html">Input</a>
+                <a class="nav-link active" href="input.php">Input</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
+                <a class="nav-link" href="about.php">About Us</a>
               </li>
             </ul>
           </div>
@@ -84,7 +86,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     </header>
 
     <!-- Page Content -->
-    <div class="page-heading contact-heading header-text">
+    <div class="page-heading input-heading header-text">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -112,39 +114,31 @@ https://templatemo.com/tm-546-sixteen-clothing
       <form method="POST">
         <div class="form">
           <label>Judul Game</label>
-          <input id="inpJudul" type="text" name="judul_game">
+          <input id="inpJudul" type="text" value="<?=@$vjudul?>" name="judul_game">
         </div>
         <div class="form">
           <label>Kategori</label>
-          <input id="inpKategori" type="text" name="kategori">
+          <input id="inpKategori" type="text" value="<?=@$vkategori?>" name="kategori">
         </div>
         <div class="form">
           <label>Publisher</label>
-          <input id="inpPublisher" type="text" name="publisher">
+          <input id="inpPublisher" type="text" value="<?=@$vpublisher?>" name="publisher">
         </div>
         <div class="form">
           <label>Developer</label>
-          <input id="inpDev" type="text" name="developer">
+          <input id="inpDev" type="text" value="<?=@$vdeveloper?>" name="developer">
         </div>
         <div class="form">
           <label>Store</label>
-          <input id="inpStore" type="text" name="store">
+          <input id="inpStore" type="text" value="<?=@$vstore?>" name="store">
         </div>
         <div class="form">
-          <label>Tanggal Rilis</label>
-          <input id="inpTgl" type="date" name="tanggal">
+          <label>Produser</label>
+          <input id="inpProd" type="text" value="<?=@$vproduser?>" name="produser">
         </div>
         <div class="form">
-          <label>Platform</label>
-          <input id="inpPlaform" type="text" name="platform">
-        </div>
-        <div class="form">
-          <label>Rating</label>
-          <input id="inpRating" type="number" name="rating">
-        </div>
-        <div class="form">
-          <label>Sinopsis</label>
-          <input id="inpSin" type="text" name="sinopsis">
+          <label>Link Foto</label>
+          <input id="inpFot" type="text" value="<?=@$vlink_foto?>" name="foto">
         </div>
         <div class="form">
           <input type="submit" name="submit" value="SUBMIT" class="btn">
@@ -174,15 +168,15 @@ https://templatemo.com/tm-546-sixteen-clothing
           </tr>
         <?php 
           $no = 1;
-          $tampil = mysqli_query($koneksi,"SELECT * from game order by id_game desc");
+          $tampil = mysqli_query($connect,"SELECT * from game order by id desc");
           while ($data = mysqli_fetch_array($tampil)):
 
         ?>
           <tr>
             <td><?=$no++?></td>
-            <td><?=$judul_game?></td> <!-- Ini sesuain sama nama kolom di database-->
+            <td><?=$data['judul']?></td> <!-- Ini sesuain sama nama kolom di database-->
             <td>
-              <a href="#" class="btn btn-warning"> Edit </a>
+              <a href="input.php?hal=edit&id=<?=$data['id']?>" class="btn btn-warning"> Edit </a>
               <a href="#" class="btn btn-danger"> Hapus </a>
             </td>
           </tr>
@@ -226,21 +220,40 @@ https://templatemo.com/tm-546-sixteen-clothing
         $p = $_POST['publisher'];
         $d = $_POST['developer'];
         $s = $_POST['store'];
-        $t = $_POST['tanggal'];
-        $pl = $_POST['platform'];
-        $r = $_POST['rating'];
-        $si = $_POST['sinopsis'];
+        $pd = $_POST['produser'];
+        $lf = $_POST['foto'];
 
-        mysqli_query($koneksi, "INSERT INTO game VALUES ('','$jg','$k','$p','$d','$s','$t','$pl','$r','$si' )");
-        // $sql = "INSERT INTO game VALUES (
-        //   '','$jg','$k','$p','$d','$s','$t','$pl','$r','$si'
-        // );";
-
-        echo $sql;
+        $simpan = mysqli_query($koneksi, "INSERT INTO game VALUES ('','$jg','$pd','$k','$lf','$d','$p','$s')");
+        
+        if($simpan){
+          echo "<script>
+              alert('Data berhasil disimpan!');
+              document.location='input.php';
+          </script>";
+        }else {
+          echo "<script>
+              alert('Data gagal disimpan!');
+              document.location='input.php';
+          </script>";
+        }
       }
-    ?>
-    <?php
-      $koneksi = mysqli_connect("localhost","root","", "gametab")
+      if(isset($_GET['hal']))
+      {
+        if($_GET['hal'] == "edit")
+        {
+          $tampil = mysqli_query($koneksi,"SELECT * FROM game WHERE id = "$_GET['id']"");
+          $data = mysqli_fetch_array($tampil);
+          if($data){
+            $vjudul = $data['judul'];
+            $vkategori = $data['kategori'];
+            $vpublisher = $data['id_publisher'];
+            $vdeveloper = $data['id_developer'];
+            $vstore = $data['id_platform_store'];
+            $vproduser = $data['produser'];
+            $vlink_foto = $data['link_foto'];
+          }
+        }
+      } 
     ?>
   </body>
 </html>

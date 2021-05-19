@@ -59,10 +59,10 @@ https://templatemo.com/tm-546-sixteen-clothing
                 </a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link active" href="games.php">Games</a>
+                <a class="nav-link" href="games.php">Games</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="publisher.php">Publisher</a>
+                <a class="nav-link active" href="publisher.php">Publisher</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="store.php">Store</a>
@@ -84,52 +84,43 @@ https://templatemo.com/tm-546-sixteen-clothing
 
 
     <!-- Page Content -->
-    <div class="page-heading products-heading header-text">
+    <div class="page-heading publisher-heading header-text">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="text-content">
-              <h4>New Games Everyday</h4>
-              <h2>List Of Games</h2>
+              <h2>List Of Publisher</h2>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Isi List Games -->
-      
+    <!-- Isi List Publisher -->
+    
+    <!-- Publishers -->
     <div class="about-features">
-      <h2 class="jdl-games">Games List</h2>
+      <h2 class="jdl-games">Publisher List</h2>
       <br>
     </div>
 
     <?php 
-      $tampil = mysqli_query($connect,"SELECT * FROM game INNER JOIN developer ON game.id_developer = developer.id
-                                       INNER JOIN publisher ON game.id_publisher = publisher.id 
-                                       INNER JOIN platform_store ON game.id_platform_store = platform_store.id");
+      $tampil = mysqli_query($connect,"SELECT * from publisher order by id asc");
       while($data = mysqli_fetch_array($tampil)):
     ?>
+
     <div class="card w50 card-games">
       <div class="card-body">
-        <h2 class="card-title"><?=$data['judul']?></h5>
-        <div class="game-desc">
-          <img class="card-img" src="<?=$data['link_foto']?>" >
-          <p class="card-text">Developer : <?=$data['namaDev']?></p><br>
-          <p class="card-text">Publisher : <?=$data['namaPub']?></p><br>
-          <p class="card-text">Store     : <?=$data['namaPlat']?></p><br>
-          <p class="card-text">Producers : <?=$data['producers']?></p><br>
-          <p class="card-text">Category  : <?=$data['kategori']?></p><br>
-
+        <h2 class="card-title"><?=$data['namaPub']?></h2>
+        <div class="developer-desc">
+          <img class="card-img" src="<?=$data['link_foto_pub']?>" >
+          <p class="publisher-text"><?=$data['sinopsis']?></p>
         </div>
+        <a href="<?=$data['link_wiki']?>" class="btn2">Read More --></a>
       </div>
     </div> 
+  
     <?php endwhile; ?>
-    
-    <!-- Games 3 -->
-    <!-- Akhir List Games -->
-
-    
     <footer>
       <div class="container">
         <div class="row">

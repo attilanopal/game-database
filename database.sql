@@ -30,6 +30,9 @@ CREATE TABLE game (
     rating int(10) not null,
     standar_minimum varchar(50) not null,
     standar_rekomendasi varchar(50) not null
+    id_pengembang int(4) not null,
+    id_platform_store int(4) not null,
+    id_publisher int (4) not null
 );
 ALTER TABLE game ADD FOREIGN KEY (id_pengembang) REFERENCES pengembang(id_pengembang);
 ALTER TABLE game ADD FOREIGN KEY (id_publisher) REFERENCES publisher(id_publisher);

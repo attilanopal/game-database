@@ -2,7 +2,7 @@
 $server = 'localhost'; 
 $username = 'root';    
 $password = '';
-$database = 'dbGame';
+$database = 'gametab';
 $connect = mysqli_connect($server,$username,$password,$database);
 
 if (!$connect){

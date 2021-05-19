@@ -1,5 +1,6 @@
-
-
+<?php 
+  include "logic.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,28 +53,28 @@ https://templatemo.com/tm-546-sixteen-clothing
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home
+              <li class="nav-item">
+                <a class="nav-link" href="index.php">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="games.html">Games</a>
+                <a class="nav-link" href="games.php">Games</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="publisher.html">Publisher</a>
+                <a class="nav-link" href="publisher.php">Publisher</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="store.html">Store</a>
+                <a class="nav-link" href="store.php">Store</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="developer.html">Developer</a>
+                <a class="nav-link active" href="developer.php">Developer</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="input.html">Input</a>
+                <a class="nav-link" href="input.php">Input</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
+                <a class="nav-link" href="about.php">About Us</a>
               </li>
             </ul>
           </div>
@@ -81,25 +82,60 @@ https://templatemo.com/tm-546-sixteen-clothing
       </nav>
     </header>
 
+
     <!-- Page Content -->
-    <!-- Banner Starts Here -->
-    <div class="banner header-text">
-        <div class="banner-item-01">
-          <div class="text-content">
-            <h4>Find Your Favorite Games Here</h4>
-            <br>
-            <h2>New Games Updated Everyday</h2>
+    <div class="page-heading developer-heading header-text ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content dev">
+              <h3>List Of Developer</h3>
+            </div>
           </div>
         </div>
+      </div>
     </div>
-    <!-- Banner Ends Here -->
 
-    <!-- Discover Button -->
-    <div class="flex-container">
-      <a class="btn btn-discover" href="games.html">Discover Games</a>
+    <!-- Isi List Developer -->
+    <div class="about-features">
+      <h2 class="jdl-developer">Developer List</h2>
+      <br>
     </div>
+    <!-- Developers  -->
+
+    <?php 
+      $tampil = mysqli_query($connect,"SELECT * from developer order by id asc");
+      while($data = mysqli_fetch_array($tampil)):
+    ?>
+    <div class="card w50 card-games">
+      <div class="card-body">
+        <h2 class="card-title"><?=$data['namaDev']?></h2>
+        <div class="developer-desc">
+          <img class="card-img" src="<?=$data['link_foto_dev']?>" >
+          <p class="publisher-text"><?=$data['sinopsis']?></p>
+        </div>
+        <a href="https://en.wikipedia.org/wiki/EA_Sports" class="btn2">Read More --></a>
+      </div>
+    </div>
+
+    <?php endwhile; ?>
+    <!-- Akhir List Games -->
     
-      <!-- Bootstrap core JavaScript -->
+    
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="inner-content">
+              <p>Copyright &copy; 2021 Project Sistem Database - Game Database </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

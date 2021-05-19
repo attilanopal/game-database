@@ -1,3 +1,6 @@
+<?php
+  include "logic.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,22 +59,22 @@ https://templatemo.com/tm-546-sixteen-clothing
                 </a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link active" href="games.html">Games</a>
+                <a class="nav-link" href="games.php">Games</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="publisher.html">Publisher</a>
+                <a class="nav-link" href="publisher.php">Publisher</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="store.html">Store</a>
+                <a class="nav-link active" href="store.php">Store</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="developer.html">Developer</a>
+                <a class="nav-link" href="developer.php">Developer</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="input.html">Input</a>
+                <a class="nav-link" href="input.php">Input</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
+                <a class="nav-link" href="about.php">About Us</a>
               </li>
             </ul>
           </div>
@@ -81,67 +84,42 @@ https://templatemo.com/tm-546-sixteen-clothing
 
 
     <!-- Page Content -->
-    <div class="page-heading products-heading header-text">
+    <div class="page-heading store-heading header-text">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="text-content">
-              <h4>New Games Everyday</h4>
-              <h2>List Of Games</h2>
+              <h5>List Of Store</h5>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Isi List Games -->
+    <!-- Isi List Store-->
       
     <div class="about-features">
-      <h2 class="jdl-games">Games List</h2>
+      <h2 class="jdl-games">Store List</h2>
       <br>
     </div>
+    <!-- Stores -->
+
+    <?php 
+      $tampil = mysqli_query($connect,"SELECT * from platform_store order by id asc");
+      while($data = mysqli_fetch_array($tampil)):
+    ?>
     <div class="card w50 card-games">
       <div class="card-body">
-        <h2 class="card-title">Cyberpunk 2077</h5>
-        <div class="game-desc">
-          <img class="card-img" src="https://images-na.ssl-images-amazon.com/images/I/81iR0aGNJ5L._SL1500_.jpg" >
-          <p class="card-text">Developer : CD Projekt Red</p><br>
-          <p class="card-text">Publisher : CD Projekt</p><br>
-          <p class="card-text">Producers : Konrad Tomaszkiewicz</p><br>
-          
+        <h2 class="card-title"><?=$data['namaPlat']?></h2>
+        <div class="developer-desc">
+          <img class="card-img" src="<?=$data['link_foto_plat']?>" >
+          <p class="publisher-text"><?=$data['sinopsis']?></p>
         </div>
-        <a href="#" class="btn btn-danger btn-games">Read More --></a>
       </div>
     </div> 
-    <!-- Games 1 -->
-    <div class="card w50 card-games">
-      <div class="card-body">
-        <h2 class="card-title">FIFA 2021</h5>
-        <div class="game-desc">
-          <img class="card-img" src="assets/images/fifa.jpg" >
-          <p class="card-text">Developer : EA Vancouver</p><br>
-          <p class="card-text">Publisher : EA Sports</p><br>
-          <p class="card-text">Producers : -</p><br>
-          
-        </div>
-        <a href="#" class="btn btn-danger btn-games">Read More --></a>
-      </div>
-    </div>
-    <!-- Games 2 -->
-    <div class="card w0 card-games">
-      <div class="card-body">
-        <h2 class="card-title">GTA V</h5>
-        <div class="game-desc">
-          <img class="card-img" src="assets/images/gta5.jpg" >
-          <p class="card-text">Developer : Rockstar North</p><br>
-          <p class="card-text">Publisher : Rockstar Games</p><br>
-          <p class="card-text">Producers : Leslie Benzies & Imran Sarwar</p><br>
-        </div>
-        <a href="#" class="btn btn-danger btn-games">Read More --></a>
-      </div>
-    </div>
-    <!-- Games 3 -->
-    <!-- Akhir List Games -->
+
+    <?php endwhile; ?>
+    <!-- Akhir List Store -->
 
     
     <footer>
