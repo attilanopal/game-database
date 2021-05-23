@@ -233,6 +233,9 @@ https://templatemo.com/tm-546-sixteen-clothing
         <div class="form">
           <input type="submit" name="submit" value="SUBMIT" class="btn">
         </div>
+        <div class="form">
+          <a href="#--" class="btn" onclick="editForm()">Edit</a> <!-- isi -- nya -->
+        </div>
       </form>
     </div>
 
@@ -274,6 +277,7 @@ https://templatemo.com/tm-546-sixteen-clothing
         <?php
           endwhile;
         ?>
+
         </table>
       </div>
     </section>
@@ -301,5 +305,38 @@ https://templatemo.com/tm-546-sixteen-clothing
           }
       }
     </script>
+
+    <!-- Script Tambahan buat button edit -->
+    <script>
+      var formMenu = document.getElementById("--");
+      formMenu.style.display = "none";
+
+      function editForm(){
+          if(formMenu.style.display === "none"){
+              formMenu.style.display = "block";
+          }else{
+              formMenu.style.display = "none";
+          }
+
+          var name = document
+      }
+
+      function simpanForm(){
+          
+      }
+
+      function showMenu(){
+          var menu = document.getElementById("menu");
+          var box = document.getElementById("input-form");
+
+          if(menu.style.display === "block"){
+              menu.style.display = "none";
+              box.style.paddingTop = "0px";
+          }else{
+              menu.style.display = "block";
+              box.style.paddingTop = "125px";
+          }
+      }
+  </script>
   </body>
 </html>
