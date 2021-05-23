@@ -1,6 +1,96 @@
 <?php
   include "logic.php"
 ?>
+<?php
+      if(isset($_POST['submit'])){
+        if($_GET['hal'] = 'edit'){
+          $jg = $_POST['judul_game'];
+          $k = $_POST['kategori'];
+          $p = $_POST['publisher'];
+          $d = $_POST['developer'];
+          $s = $_POST['store'];
+          $pd = $_POST['produser'];
+          $lf = $_POST['foto'];
+  
+          $edit = mysqli_query($connect, "UPDATE game SET judul='$jg', 
+                                            producers = '$pd',
+                                            kategori = '$k',
+                                            link_foto = '$lf',
+                                            id_developer = '$d',
+                                            id_publisher = '$p',
+                                            id_platform_store = '$s'
+                                            WHERE id = '$_GET[id]'
+                                            ");
+          
+          if($edit){
+            echo "<script>
+                alert('Data berhasil diedit!');
+                document.location='input.php';
+            </script>";
+          }else {
+            echo "<script>
+                alert('Data gagal diedit!');
+                document.location='input.php';
+            </script>";
+          }
+        }
+        else 
+        {
+          $jg = $_POST['judul_game'];
+          $k = $_POST['kategori'];
+          $p = $_POST['publisher'];
+          $d = $_POST['developer'];
+          $s = $_POST['store'];
+          $pd = $_POST['produser'];
+          $lf = $_POST['foto'];
+  
+          $simpan = mysqli_query($connect, "INSERT INTO game VALUES ('','$jg','$pd','$k','$lf','$d','$p','$s')");
+          
+          if($simpan){
+            echo "<script>
+                alert('Data berhasil disimpan!');
+                document.location='input.php';
+            </script>";
+          }else {
+            echo "<script>
+                alert('Data gagal disimpan!');
+                document.location='input.php';
+            </script>";
+          }
+        } 
+      }
+      if(isset($_GET['hal']))
+      {
+        if($_GET['hal'] == 'edit')
+        {
+          $tampil = mysqli_query($connect,"SELECT * FROM game WHERE id = '$_GET[id]'");
+          $data = mysqli_fetch_array($tampil);
+          if($data){
+            $vjudul = $data['judul'];
+            $vkategori = $data['kategori'];
+            $vpublisher = $data['id_publisher'];
+            $vdeveloper = $data['id_developer'];
+            $vstore = $data['id_platform_store'];
+            $vproduser = $data['producers'];
+            $vlink_foto = $data['link_foto'];
+          }
+        } 
+        else if ($_GET['hal'] == 'delete')
+        {
+          $delete = mysqli_query($connect,"DELETE FROM game WHERE id = '$_GET[id]' ");
+          if($delete){
+            echo "<script>
+            alert('Data berhasil dihapus!');
+            document.location='input.php';
+        </script>";
+          }
+        }
+
+
+      } 
+      
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -104,7 +194,7 @@ https://templatemo.com/tm-546-sixteen-clothing
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>New Game Input</h2>
+              <h2>Input / Edit</h2>
             </div>
           </div>
         </div>
@@ -177,7 +267,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             <td><?=$data['judul']?></td> <!-- Ini sesuain sama nama kolom di database-->
             <td>
               <a href="input.php?hal=edit&id=<?=$data['id']?>" class="btn btn-warning"> Edit </a>
-              <a href="#" class="btn btn-danger"> Hapus </a>
+              <a href="input.php?hal=delete&id=<?=$data['id']?>" onclick="return confirm('Apakah anda yakin ingin menghapus game ini dari database?') "class="btn btn-danger"> Hapus </a>
             </td>
           </tr>
         
@@ -211,49 +301,5 @@ https://templatemo.com/tm-546-sixteen-clothing
           }
       }
     </script>
-
-<?php
-      if(isset($_POST['submit'])){
-        $koneksi = mysqli_connect("localhost","root","", "gametab");
-        $jg = $_POST['judul_game'];
-        $k = $_POST['kategori'];
-        $p = $_POST['publisher'];
-        $d = $_POST['developer'];
-        $s = $_POST['store'];
-        $pd = $_POST['produser'];
-        $lf = $_POST['foto'];
-
-        $simpan = mysqli_query($koneksi, "INSERT INTO game VALUES ('','$jg','$pd','$k','$lf','$d','$p','$s')");
-        
-        if($simpan){
-          echo "<script>
-              alert('Data berhasil disimpan!');
-              document.location='input.php';
-          </script>";
-        }else {
-          echo "<script>
-              alert('Data gagal disimpan!');
-              document.location='input.php';
-          </script>";
-        }
-      }
-      if(isset($_GET['hal']))
-      {
-        if($_GET['hal'] == "edit")
-        {
-          $tampil = mysqli_query($koneksi,"SELECT * FROM game WHERE id = "$_GET['id']"");
-          $data = mysqli_fetch_array($tampil);
-          if($data){
-            $vjudul = $data['judul'];
-            $vkategori = $data['kategori'];
-            $vpublisher = $data['id_publisher'];
-            $vdeveloper = $data['id_developer'];
-            $vstore = $data['id_platform_store'];
-            $vproduser = $data['produser'];
-            $vlink_foto = $data['link_foto'];
-          }
-        }
-      } 
-    ?>
   </body>
 </html>
