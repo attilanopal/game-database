@@ -299,8 +299,8 @@ https://templatemo.com/tm-546-sixteen-clothing
             <td><?=$data['judul']?></td> <!-- Buat nampilin judul game-->
             <td>
               <a href="input.php?hal=edit&id=<?=$data['id']?>" class="btn btn-warning"> Edit </a> <!-- Tombol buat edit -->
-              <a href="input.php?hal=delete&id=<?=$data['id']?>" onclick="return 
-              confirm('Apakah anda yakin ingin menghapus game ini dari database?') "class="btn btn-danger"> Hapus </a> <!-- Tombol buat hapus  -->
+              <a href="input.php?hal=delete&id=<?=$data['id']?>" 
+              onclick="return confirm('Apakah anda yakin ingin menghapus game ini dari database?') "class="btn btn-danger"> Hapus </a> <!-- Tombol buat hapus  -->
             </td>
           </tr>
         
