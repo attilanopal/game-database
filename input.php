@@ -3,7 +3,10 @@
 ?>
 <?php
       if(isset($_POST['submit'])){
-        if($_GET['hal'] = 'edit'){
+
+        // Kalau pencet SUBMIT dalam mode edit maka QUERY SQL yang dipakai adalah 'UPDATE'
+        if($_GET['hal'] == 'edit'){
+          // Mengambil nilai input pengguna menjadi Variabel
           $jg = $_POST['judul_game'];
           $k = $_POST['kategori'];
           $p = $_POST['publisher'];
@@ -12,6 +15,7 @@
           $pd = $_POST['produser'];
           $lf = $_POST['foto'];
   
+          // Value tadi dimasukkan pada query update
           $edit = mysqli_query($connect, "UPDATE game SET judul='$jg', 
                                             producers = '$pd',
                                             kategori = '$k',
@@ -23,19 +27,22 @@
                                             ");
           
           if($edit){
+            // Kalau data berhasil di edit maka memunculkan pemberitahuan berhasil
             echo "<script>
-                alert('Data berhasil diedit!');
+                alert('Game berhasil diedit!');
                 document.location='input.php';
             </script>";
           }else {
+            // Kalau data tidak berhasil di edit maka memunculkan pemberitahuan tidak berhasil
             echo "<script>
-                alert('Data gagal diedit!');
+                alert('Game gagal diedit!');
                 document.location='input.php';
             </script>";
           }
         }
-        else 
-        {
+        
+        else {
+          // Value dari input pengguna diubah ke bentuk variabel
           $jg = $_POST['judul_game'];
           $k = $_POST['kategori'];
           $p = $_POST['publisher'];
@@ -43,24 +50,32 @@
           $s = $_POST['store'];
           $pd = $_POST['produser'];
           $lf = $_POST['foto'];
-  
+          
+          // Kemudian dari variabel dimasukkan ke Query INSERT 
           $simpan = mysqli_query($connect, "INSERT INTO game VALUES ('','$jg','$pd','$k','$lf','$d','$p','$s')");
           
           if($simpan){
+            // Kalau berhasil nyimpan memunculkan pemberitahuan data berhasil disimpan
             echo "<script>
-                alert('Data berhasil disimpan!');
+                alert('Game berhasil disimpan!');
                 document.location='input.php';
             </script>";
           }else {
+            // Kalau gagal nyimpan munculin pemberitahuan data gagal disimpan
             echo "<script>
-                alert('Data gagal disimpan!');
+                alert('Game gagal disimpan!');
                 document.location='input.php';
             </script>";
           }
         } 
       }
-      if(isset($_GET['hal']))
+
+
+      else if(isset($_GET['hal']))
       {
+        /* Apabila menekan tombol edit maka akan mengambil data2 yang tersimpan di database menjadi variabel
+          yang nantinya variabelnya bakal ditampilin di input field tempat menyimpan game baru 
+        */
         if($_GET['hal'] == 'edit')
         {
           $tampil = mysqli_query($connect,"SELECT * FROM game WHERE id = '$_GET[id]'");
@@ -76,11 +91,13 @@
           }
         } 
         else if ($_GET['hal'] == 'delete')
+        // Apabila menekan tombol delete maka akan menjalankan Query DELETE sesuai dengan id game yang akan dihapus
         {
           $delete = mysqli_query($connect,"DELETE FROM game WHERE id = '$_GET[id]' ");
           if($delete){
+            // Apabila data berhasil dihapus akan mengeluarkan pemberitahuan game berhasil dihapus
             echo "<script>
-            alert('Data berhasil dihapus!');
+            alert('Game berhasil dihapus!');
             document.location='input.php';
         </script>";
           }
@@ -127,13 +144,13 @@ https://templatemo.com/tm-546-sixteen-clothing
     ?>
 
     <!-- ***** Preloader Start ***** -->
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div class="jumper">
             <div></div>
             <div></div>
             <div></div>
         </div>
-    </div>   -->
+    </div>  
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
@@ -146,7 +163,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="index.php">Home
                   <span class="sr-only">(current)</span>
                 </a>
@@ -216,7 +233,18 @@ https://templatemo.com/tm-546-sixteen-clothing
         </div>
         <div class="form">
           <label>Developer</label>
-          <input id="inpDev" type="text" value="<?=@$vdeveloper?>" name="developer">
+          <!-- <select name="developer">
+          <option>--- Pilih Developer ---</option>
+          <?php
+          // $sql = mysqli_query($connect,"SELECT * FROM developer ORDER BY id ASC"); 
+          // if($sql){
+          //   while($row = mysqli_fetch_assoc($sql)){
+          //     echo '<option value="$row["id"]>'.$row['namaDev'].'</option>';
+          //   }
+          // }
+          ?>
+        </select> -->
+        <input id="inpDev" type="text" value="<?=@$vdeveloper?>" name="developer">
         </div>
         <div class="form">
           <label>Store</label>
@@ -260,17 +288,19 @@ https://templatemo.com/tm-546-sixteen-clothing
             <th>Aksi</th>
           </tr>
         <?php 
+        // Script PHP buat nampilin dari database ke website menggunakan while loop
           $no = 1;
-          $tampil = mysqli_query($connect,"SELECT * from game order by id desc");
-          while ($data = mysqli_fetch_array($tampil)):
+          $tampil = mysqli_query($connect,"SELECT * from game order by id desc"); // Mengambil data data dari tabel game 
+          while ($data = mysqli_fetch_array($tampil)): // Mengubah tiap datanya menjadi variabel
 
         ?>
           <tr>
             <td><?=$no++?></td>
-            <td><?=$data['judul']?></td> <!-- Ini sesuain sama nama kolom di database-->
+            <td><?=$data['judul']?></td> <!-- Buat nampilin judul game-->
             <td>
-              <a href="input.php?hal=edit&id=<?=$data['id']?>" class="btn btn-warning"> Edit </a>
-              <a href="input.php?hal=delete&id=<?=$data['id']?>" onclick="return confirm('Apakah anda yakin ingin menghapus game ini dari database?') "class="btn btn-danger"> Hapus </a>
+              <a href="input.php?hal=edit&id=<?=$data['id']?>" class="btn btn-warning"> Edit </a> <!-- Tombol buat edit -->
+              <a href="input.php?hal=delete&id=<?=$data['id']?>" onclick="return 
+              confirm('Apakah anda yakin ingin menghapus game ini dari database?') "class="btn btn-danger"> Hapus </a> <!-- Tombol buat hapus  -->
             </td>
           </tr>
         

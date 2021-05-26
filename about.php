@@ -56,22 +56,22 @@ https://templatemo.com/tm-546-sixteen-clothing
                 </a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="games.html">Games</a>
+                <a class="nav-link" href="games.php">Games</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="publisher.html">Publisher</a>
+                <a class="nav-link" href="publisher.php">Publisher</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="store.html">Store</a>
+                <a class="nav-link" href="store.php">Store</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="developer.html">Developer</a>
+                <a class="nav-link" href="developer.php">Developer</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="input.html">Input</a>
+                <a class="nav-link" href="input.php">Input</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="about.html">About Us</a>
+                <a class="nav-link" href="about.php">About Us</a>
               </li>
             </ul>
           </div>
